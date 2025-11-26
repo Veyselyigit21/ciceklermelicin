@@ -23,7 +23,7 @@ html, body {
   perspective: 1000px;
 }
 
-/* === YILDIZLAR (SCSS'ten çevrildi) === */
+/* === YILDIZLAR (Daha Yoğun ve Parlak) === */
 .star {
   position: fixed;
   top: 0;
@@ -32,17 +32,44 @@ html, body {
   height: 1px;
   background: transparent;
   z-index: -10;
-  /* Rastgele yıldız koordinatları */
+  opacity: 0.8;
+  /* İşte burası yıldızları çoğaltan sihirli kısım: */
   box-shadow: 
-    120px 500px #fff, 400px 200px #fff, 800px 100px #fff, 1200px 600px #fff, 
-    1500px 300px #fff, 100px 800px #fff, 500px 500px #fff, 900px 900px #fff, 
-    1600px 100px #fff, 50px 200px #fff, 300px 50px #fff, 600px 700px #fff,
-    1000px 200px #fff, 1300px 400px #fff, 1700px 800px #fff, 200px 600px #fff,
-    10px 10px #fff, 1800px 500px #fff, 700px 300px #fff, 1100px 800px #fff,
-    1400px 100px #fff, 250px 900px #fff, 1900px 200px #fff, 550px 150px #fff,
-    850px 650px #fff, 1250px 50px #fff, 1550px 750px #fff, 350px 350px #fff,
-    450px 850px #fff, 950px 450px #fff, 1350px 950px #fff, 1750px 550px #fff,
-    650px 50px #fff, 1150px 250px #fff, 1450px 650px #fff, 50px 950px #fff;
+    /* --- Sol Taraf --- */
+    10px 10px #fff, 50px 200px #fff, 100px 800px #fff, 120px 500px #fff, 
+    150px 50px #fff, 200px 600px #fff, 250px 900px #fff, 300px 50px #fff, 
+    350px 350px #fff, 400px 200px #fff, 450px 850px #fff, 50px 950px #fff,
+    20px 400px #fff, 80px 150px #fff, 180px 750px #fff, 220px 300px #fff,
+    
+    /* --- Orta Taraf --- */
+    500px 500px #fff, 550px 150px #fff, 600px 700px #fff, 650px 50px #fff, 
+    700px 300px #fff, 800px 100px #fff, 850px 650px #fff, 900px 900px #fff, 
+    950px 450px #fff, 1000px 200px #fff, 750px 850px #fff, 620px 400px #fff,
+    880px 120px #fff, 920px 700px #fff, 540px 950px #fff, 760px 50px #fff,
+
+    /* --- Sağ Taraf --- */
+    1100px 800px #fff, 1150px 250px #fff, 1200px 600px #fff, 1250px 50px #fff, 
+    1300px 400px #fff, 1350px 950px #fff, 1400px 100px #fff, 1450px 650px #fff, 
+    1500px 300px #fff, 1550px 750px #fff, 1600px 100px #fff, 1700px 800px #fff, 
+    1750px 550px #fff, 1800px 500px #fff, 1900px 200px #fff, 1850px 900px #fff,
+    1650px 350px #fff, 1580px 50px #fff, 1420px 850px #fff, 1950px 450px #fff,
+    
+    /* --- Ekstra Minik Yıldızlar (Derinlik için) --- */
+    123px 45px rgba(255,255,255,0.6), 678px 901px rgba(255,255,255,0.6), 
+    345px 123px rgba(255,255,255,0.6), 890px 456px rgba(255,255,255,0.6),
+    150px 800px rgba(255,255,255,0.6), 1700px 150px rgba(255,255,255,0.6),
+    500px 900px rgba(255,255,255,0.6), 1100px 50px rgba(255,255,255,0.6),
+    55px 600px rgba(255,255,255,0.6), 1800px 950px rgba(255,255,255,0.6);
+    
+  /* Hafif yanıp sönme efekti ekleyelim */
+  animation: twinkle 5s infinite alternate;
+}
+
+/* Yanıp Sönme Animasyonu */
+@keyframes twinkle {
+  0% { opacity: 0.5; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.1); }
+} #fff, 1450px 650px #fff, 50px 950px #fff;
 }
 
 /* === METEORLAR (Genel Ayarlar) === */
