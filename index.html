@@ -134,14 +134,39 @@
         <div class="long-g long-g--7"><div class="leaf"></div><div class="leaf leaf--2"></div><div class="leaf leaf--3"></div><div class="leaf leaf--4"></div><div class="leaf leaf--5"></div><div class="leaf leaf--6"></div></div>
     </div>
 
-   <div class="video-wrapper">
-        <div class="video-frame video-left">
-            <iframe src="https://www.youtube.com/embed/_Pe0LOQ9R5M" title="Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        
-        <div class="video-frame video-right">
-            <iframe src="https://www.youtube.com/embed/C-wu2VcYNCA" title="Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <button class="open-video-btn" onclick="toggleModal()">
+        🎥 Senin İçin...
+    </button>
+
+    <div id="videoModal" class="modal-overlay" onclick="toggleModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="toggleModal()">&times;</span>
+            
+            <h3 class="modal-title">Ruhuna İyi Gelsin... 🎶</h3>
+            
+            <div class="modal-video">
+                <p>Sezen Aksu - Ben Sende Tutuklu Kaldım</p>
+                <iframe src="https://www.youtube.com/embed/_Pe0LOQ9R5M" title="Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <a href="https://www.youtube.com/watch?v=_Pe0LOQ9R5M" target="_blank" class="yt-link">YouTube'da Aç ↗</a>
+            </div>
+
+            <div class="modal-video">
+                <p>Balmorhea - Remembrance</p>
+                <iframe src="https://www.youtube.com/embed/C-wu2VcYNCA" title="Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <a href="https://www.youtube.com/watch?v=C-wu2VcYNCA" target="_blank" class="yt-link">YouTube'da Aç ↗</a>
+            </div>
         </div>
     </div>
+
+    <script>
+        function toggleModal() {
+            var modal = document.getElementById("videoModal");
+            if (modal.style.display === "flex") {
+                modal.style.display = "none";
+            } else {
+                modal.style.display = "flex";
+            }
+        }
+    </script>
 </body>
 </html>
