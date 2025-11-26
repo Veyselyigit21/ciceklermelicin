@@ -10,7 +10,7 @@
   --dark-color: #000;
 }
 
-/* === YENİ ARKA PLAN AYARLARI === */
+/* === GENEL SAYFA AYARLARI === */
 html, body {
   height: 100%;
   width: 100%;
@@ -23,7 +23,7 @@ html, body {
   perspective: 1000px;
 }
 
-/* === YILDIZLAR (Daha Yoğun ve Parlak) === */
+/* === 1. SABİT YILDIZLAR (YOĞUNLAŞTIRILMIŞ) === */
 .star {
   position: fixed;
   top: 0;
@@ -33,46 +33,45 @@ html, body {
   background: transparent;
   z-index: -10;
   opacity: 0.8;
-  /* İşte burası yıldızları çoğaltan sihirli kısım: */
+  
+  /* YILDIZ KOORDİNATLARI (GÖKYÜZÜ DOLUSU) */
   box-shadow: 
-    /* --- Sol Taraf --- */
+    /* Sol Taraf */
     10px 10px #fff, 50px 200px #fff, 100px 800px #fff, 120px 500px #fff, 
     150px 50px #fff, 200px 600px #fff, 250px 900px #fff, 300px 50px #fff, 
     350px 350px #fff, 400px 200px #fff, 450px 850px #fff, 50px 950px #fff,
     20px 400px #fff, 80px 150px #fff, 180px 750px #fff, 220px 300px #fff,
     
-    /* --- Orta Taraf --- */
+    /* Orta Taraf */
     500px 500px #fff, 550px 150px #fff, 600px 700px #fff, 650px 50px #fff, 
     700px 300px #fff, 800px 100px #fff, 850px 650px #fff, 900px 900px #fff, 
     950px 450px #fff, 1000px 200px #fff, 750px 850px #fff, 620px 400px #fff,
     880px 120px #fff, 920px 700px #fff, 540px 950px #fff, 760px 50px #fff,
 
-    /* --- Sağ Taraf --- */
+    /* Sağ Taraf */
     1100px 800px #fff, 1150px 250px #fff, 1200px 600px #fff, 1250px 50px #fff, 
     1300px 400px #fff, 1350px 950px #fff, 1400px 100px #fff, 1450px 650px #fff, 
     1500px 300px #fff, 1550px 750px #fff, 1600px 100px #fff, 1700px 800px #fff, 
     1750px 550px #fff, 1800px 500px #fff, 1900px 200px #fff, 1850px 900px #fff,
     1650px 350px #fff, 1580px 50px #fff, 1420px 850px #fff, 1950px 450px #fff,
     
-    /* --- Ekstra Minik Yıldızlar (Derinlik için) --- */
+    /* Derinlik için Ekstra Küçükler */
     123px 45px rgba(255,255,255,0.6), 678px 901px rgba(255,255,255,0.6), 
     345px 123px rgba(255,255,255,0.6), 890px 456px rgba(255,255,255,0.6),
     150px 800px rgba(255,255,255,0.6), 1700px 150px rgba(255,255,255,0.6),
     500px 900px rgba(255,255,255,0.6), 1100px 50px rgba(255,255,255,0.6),
     55px 600px rgba(255,255,255,0.6), 1800px 950px rgba(255,255,255,0.6);
     
-  /* Hafif yanıp sönme efekti ekleyelim */
+  /* Yanıp sönme efekti */
   animation: twinkle 5s infinite alternate;
 }
 
-/* Yanıp Sönme Animasyonu */
 @keyframes twinkle {
   0% { opacity: 0.5; transform: scale(0.8); }
   100% { opacity: 1; transform: scale(1.1); }
-} #fff, 1450px 650px #fff, 50px 950px #fff;
 }
 
-/* === METEORLAR (Genel Ayarlar) === */
+/* === 2. KAYAN METEORLAR (GERİ GELDİ!) === */
 [class^="meteor-"] {
   position: absolute;
   width: 300px;
@@ -81,7 +80,7 @@ html, body {
   background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
   animation: meteor linear infinite;
   opacity: 0;
-  z-index: -5; /* Çiçeklerin arkasında kalsın */
+  z-index: -5; 
 }
 
 [class^="meteor-"]::before {
@@ -95,7 +94,15 @@ html, body {
   box-shadow: 0 0 15px 3px #fff;
 }
 
-/* === METEORLAR (Rastgele Konumlar) === */
+/* Meteor Animasyonu */
+@keyframes meteor {
+  0% { opacity: 1; margin-top: -300px; margin-right: -300px; }
+  12% { opacity: 0; }
+  15% { margin-top: 300px; margin-left: -600px; opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Meteorların Rastgele Zamanlamaları */
 .meteor-1 { top: 100px; left: 10%; animation-duration: 6s; animation-delay: 0s; }
 .meteor-2 { top: 200px; left: 30%; animation-duration: 4s; animation-delay: 2s; }
 .meteor-3 { top: 50px; left: 50%; animation-duration: 5s; animation-delay: 1s; }
@@ -112,27 +119,50 @@ html, body {
 .meteor-14 { top: 280px; left: 95%; animation-duration: 6.2s; animation-delay: 2.8s; }
 .meteor-15 { top: 60px; left: 15%; animation-duration: 4.6s; animation-delay: 0.2s; }
 
-/* === METEOR ANİMASYONU === */
-@keyframes meteor {
-  0% {
-    opacity: 1;
-    margin-top: -300px;
-    margin-right: -300px;
-  }
-  12% {
-    opacity: 0;
-  }
-  15% {
-    margin-top: 300px;
-    margin-left: -600px;
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
+
+/* === 3. GÖKYÜZÜ VİDEOLARI (YUKARIDA) === */
+.video-wrapper {
+  pointer-events: none; 
 }
 
-/* === BAŞLIKLAR (Eski Kodlardan) === */
+.video-frame {
+  position: fixed;
+  top: 20px;
+  width: 250px;
+  height: 140px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: 200;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  opacity: 0.6;
+  pointer-events: auto;
+  backdrop-filter: blur(2px);
+}
+
+.video-frame iframe { width: 100%; height: 100%; }
+
+.video-frame:hover {
+  opacity: 1;
+  transform: scale(1.15);
+  border-color: #a7ffee;
+  box-shadow: 0 0 25px rgba(167, 255, 238, 0.5);
+  z-index: 210;
+}
+
+.video-left { left: 20px; }
+.video-right { right: 20px; }
+
+/* Mobil Video Ayarı */
+@media (max-width: 768px) {
+  .video-frame { width: 120px; height: 70px; top: 10px; opacity: 0.8; }
+  .video-left { left: 10px; }
+  .video-right { right: 10px; }
+}
+
+
+/* === 4. BAŞLIKLAR VE ÇİÇEKLER (STANDART) === */
 @keyframes fade-in-up {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -146,7 +176,7 @@ html, body {
   opacity: 0;
   text-align: center;
   position: absolute;
-  top: 15%;
+  top: 20%; /* Videolara çarpmaması için biraz aşağı alındı */
   left: 0;
   width: 100%;
   z-index: 100;
@@ -161,7 +191,7 @@ html, body {
   color: #a7ffee;
   text-align: center;
   position: absolute;
-  top: 25%;
+  top: 30%; /* Videolara çarpmaması için biraz aşağı alındı */
   left: 0;
   width: 100%;
   z-index: 100;
@@ -170,11 +200,9 @@ html, body {
   animation: fade-in-up 1.5s ease-out 1.0s forwards;
 }
 
-/* === ÇİÇEKLER (Aynen Korundu) === */
+/* Çiçekler (Aynen Korundu) */
 .flowers { position: relative; transform: scale(0.9); z-index: 10; }
 .flower { position: absolute; bottom: 10vmin; transform-origin: bottom center; z-index: 10; --fl-speed: 0.8s; }
-
-/* Çiçek kodlarının geri kalanı aşağıdadır, aynen kalsın */
 .flower--1 { animation: moving-flower-1 4s linear infinite; }
 .flower--1 .flower__line { height: 70vmin; animation-delay: 0.3s; }
 .flower--1 .flower__line__leaf--1 { animation: blooming-leaf-right var(--fl-speed) 1.6s backwards; }
@@ -300,7 +328,7 @@ html, body {
 .grow-ans { animation: grow-ans 2s var(--d) backwards; }
 .growing-grass { animation: growing-grass-ans 1s 2s backwards; }
 
-/* KEYFRAMES */
+/* KEYFRAMES (Animasyonların Tanımları) */
 @keyframes growing-grass-ans--1 { 0% { transform-origin: bottom left; transform: rotate(-20deg) scale(0); } }
 @keyframes growing-grass-ans--2 { 0% { transform-origin: bottom right; transform: rotate(10deg) scale(0); } }
 @keyframes growing-grass-ans--3 { 0% { transform-origin: bottom left; transform: rotate(-18deg) rotateX(-20deg) scale(0); } }
@@ -337,69 +365,3 @@ html, body {
 @keyframes moving-grass { 0%, 100% { transform: rotate(-48deg) rotateY(40deg); } 50% { transform: rotate(-50deg) rotateY(40deg); } }
 @keyframes moving-grass--2 { 0%, 100% { transform: scale(0.5) rotate(75deg) rotateX(10deg) rotateY(-200deg); } 50% { transform: scale(0.5) rotate(79deg) rotateX(10deg) rotateY(-200deg); } }
 @keyframes growing-grass-ans { 0% { transform: scale(0); } }
-
-/* === GÖKYÜZÜ VİDEOLARI === */
-.video-wrapper {
-  /* Kapsayıcıya gerek kalmadı, videoları tek tek konumlandıracağız */
-  pointer-events: none; /* Boşluklara tıklayınca arkadaki yıldızlar çalışsın */
-}
-
-.video-frame {
-  position: fixed; /* Sayfada sabit dursun */
-  top: 20px;
-  width: 250px; /* Biraz daha kibar boyut */
-  height: 140px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  overflow: hidden;
-  z-index: 200;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-  transition: all 0.4s ease;
-  opacity: 0.6; /* Başta yarı şeffaf olsun (Manzara görünür) */
-  pointer-events: auto; /* Videoya tıklanabilsin */
-  backdrop-filter: blur(2px);
-}
-
-.video-frame iframe {
-  width: 100%;
-  height: 100%;
-}
-
-/* Üzerine gelince netleşsin ve büyüsün */
-.video-frame:hover {
-  opacity: 1;
-  transform: scale(1.15);
-  border-color: #a7ffee;
-  box-shadow: 0 0 25px rgba(167, 255, 238, 0.5);
-  z-index: 210;
-}
-
-/* === KONUMLAR === */
-
-/* 1. Video: Sol Üst */
-.video-left {
-  left: 20px;
-}
-
-/* 2. Video: Sağ Üst */
-.video-right {
-  right: 20px;
-}
-
-/* === MOBİL AYARLARI (Telefonda Üst Üste Binmesin) === */
-@media (max-width: 768px) {
-  .video-frame {
-    width: 120px; /* Telefondan girince çok küçük dursunlar */
-    height: 70px;
-    top: 10px;
-    opacity: 0.8; /* Mobilde hover olmadığı için biraz daha net olsun */
-  }
-  
-  .video-left {
-    left: 10px;
-  }
-  
-  .video-right {
-    right: 10px;
-  }
-}
