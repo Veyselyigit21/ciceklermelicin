@@ -310,44 +310,69 @@ html, body {
 @keyframes moving-grass { 0%, 100% { transform: rotate(-48deg) rotateY(40deg); } 50% { transform: rotate(-50deg) rotateY(40deg); } }
 @keyframes moving-grass--2 { 0%, 100% { transform: scale(0.5) rotate(75deg) rotateX(10deg) rotateY(-200deg); } 50% { transform: scale(0.5) rotate(79deg) rotateX(10deg) rotateY(-200deg); } }
 @keyframes growing-grass-ans { 0% { transform: scale(0); } }
-/* === VİDEO KUTULARI === */
-.video-container {
-  position: absolute;
-  bottom: 30px; /* Çiçeklerin altında */
-  width: 100%;
-  display: flex;
-  justify-content: center; /* Ortala */
-  gap: 30px; /* Videolar arası boşluk */
-  z-index: 200; /* En önde dursun */
-  pointer-events: auto; /* Tıklanabilsin */
+
+/* === GÖKYÜZÜ VİDEOLARI === */
+.video-wrapper {
+  /* Kapsayıcıya gerek kalmadı, videoları tek tek konumlandıracağız */
+  pointer-events: none; /* Boşluklara tıklayınca arkadaki yıldızlar çalışsın */
 }
 
 .video-frame {
-  border: 2px solid rgba(167, 255, 238, 0.3); /* Neon çerçeve */
-  border-radius: 15px; /* Yuvarlak köşe */
+  position: fixed; /* Sayfada sabit dursun */
+  top: 20px;
+  width: 250px; /* Biraz daha kibar boyut */
+  height: 140px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(167, 255, 238, 0.1);
-  background: rgba(0, 0, 0, 0.6); /* Yarı saydam siyah */
-  transition: all 0.3s ease;
-  backdrop-filter: blur(3px); /* Buzlu cam efekti */
+  z-index: 200;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  opacity: 0.6; /* Başta yarı şeffaf olsun (Manzara görünür) */
+  pointer-events: auto; /* Videoya tıklanabilsin */
+  backdrop-filter: blur(2px);
 }
 
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* Üzerine gelince netleşsin ve büyüsün */
 .video-frame:hover {
-  transform: scale(1.1); /* Üzerine gelince büyür */
+  opacity: 1;
+  transform: scale(1.15);
   border-color: #a7ffee;
-  box-shadow: 0 0 30px rgba(167, 255, 238, 0.6);
+  box-shadow: 0 0 25px rgba(167, 255, 238, 0.5);
   z-index: 210;
 }
 
-/* Mobilde (Telefonda) güzel görünsün diye */
+/* === KONUMLAR === */
+
+/* 1. Video: Sol Üst */
+.video-left {
+  left: 20px;
+}
+
+/* 2. Video: Sağ Üst */
+.video-right {
+  right: 20px;
+}
+
+/* === MOBİL AYARLARI (Telefonda Üst Üste Binmesin) === */
 @media (max-width: 768px) {
-  .video-container {
-    bottom: 20px;
-    gap: 10px;
-    flex-wrap: wrap; /* Sığmazsa alt alta geçsin */
+  .video-frame {
+    width: 120px; /* Telefondan girince çok küçük dursunlar */
+    height: 70px;
+    top: 10px;
+    opacity: 0.8; /* Mobilde hover olmadığı için biraz daha net olsun */
   }
-  .video-frame iframe {
-    width: 160px;
-    height: 90px;
+  
+  .video-left {
+    left: 10px;
+  }
+  
+  .video-right {
+    right: 10px;
   }
 }
