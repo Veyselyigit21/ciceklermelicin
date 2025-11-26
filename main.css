@@ -310,3 +310,44 @@ html, body {
 @keyframes moving-grass { 0%, 100% { transform: rotate(-48deg) rotateY(40deg); } 50% { transform: rotate(-50deg) rotateY(40deg); } }
 @keyframes moving-grass--2 { 0%, 100% { transform: scale(0.5) rotate(75deg) rotateX(10deg) rotateY(-200deg); } 50% { transform: scale(0.5) rotate(79deg) rotateX(10deg) rotateY(-200deg); } }
 @keyframes growing-grass-ans { 0% { transform: scale(0); } }
+/* === VİDEO KUTULARI === */
+.video-container {
+  position: absolute;
+  bottom: 30px; /* Çiçeklerin altında */
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Ortala */
+  gap: 30px; /* Videolar arası boşluk */
+  z-index: 200; /* En önde dursun */
+  pointer-events: auto; /* Tıklanabilsin */
+}
+
+.video-frame {
+  border: 2px solid rgba(167, 255, 238, 0.3); /* Neon çerçeve */
+  border-radius: 15px; /* Yuvarlak köşe */
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(167, 255, 238, 0.1);
+  background: rgba(0, 0, 0, 0.6); /* Yarı saydam siyah */
+  transition: all 0.3s ease;
+  backdrop-filter: blur(3px); /* Buzlu cam efekti */
+}
+
+.video-frame:hover {
+  transform: scale(1.1); /* Üzerine gelince büyür */
+  border-color: #a7ffee;
+  box-shadow: 0 0 30px rgba(167, 255, 238, 0.6);
+  z-index: 210;
+}
+
+/* Mobilde (Telefonda) güzel görünsün diye */
+@media (max-width: 768px) {
+  .video-container {
+    bottom: 20px;
+    gap: 10px;
+    flex-wrap: wrap; /* Sığmazsa alt alta geçsin */
+  }
+  .video-frame iframe {
+    width: 160px;
+    height: 90px;
+  }
+}
